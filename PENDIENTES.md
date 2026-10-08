@@ -21,6 +21,3 @@ Acordado el 2026-10-08. Orden de trabajo:
 - [ ] Ampliar el traductor de errores con los errores reales de los alumnos.
 - [ ] Que un alumno de nivel medio lea un par de temas y diga dónde se pierde.
 
-## Despliegue
-- [ ] Casa: docker-web-isaias + Nginx de casa.
-- [ ] Centro: docker-web (192.168.9.12), versión examen.
