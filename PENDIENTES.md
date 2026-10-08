@@ -5,7 +5,7 @@ Acordado el 2026-10-08. Orden de trabajo:
 ## Fase 1
 - [ ] Modo examen: `WIKI_EXAM=1` al construir quita ejercicios, soluciones y botón «Pruébalo» (versión del centro).
 - [ ] Botón «Pruébalo» en cada ejemplo: abre el código en el TypeScript Playground.
-- [ ] Diagramas SVG propios (sin librerías, funcionan sin red): bucle de eventos y promesas (11), capas (07), narrowing (02), ciclo de useEffect (15).
+- [x] Diagramas SVG propios (sin librerías, funcionan sin red): bucle de eventos y promesas (11), capas (07), narrowing (02), ciclo de useEffect (15).
 
 ## Fase 2
 - [ ] Ejercicios temas 01–06: 3–4 por tema, de menos a más, con pista y solución desplegables y enlace al Playground con comprobaciones de tipos.

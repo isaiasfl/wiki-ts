@@ -138,6 +138,8 @@ src/
     └── render-books.ts
 ```
 
+<DiagramLayers />
+
 La regla que hace que funcione: **las dependencias van hacia dentro**. `ui/` puede importar de `domain/`, pero `domain/` no importa nada de `ui/` ni de `services/`. Dicho de otra forma: las reglas del negocio (cuántos días dura un préstamo, cómo se calcula un total) no saben nada de botones ni de servidores. Así la lógica se puede probar sin navegador y la interfaz se puede cambiar sin tocar las reglas.
 :::
 

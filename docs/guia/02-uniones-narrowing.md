@@ -81,6 +81,8 @@ function formatId(id: string | number): string {
 No hay que escribir nada especial para que ocurra: **basta con hacer la comprobación**. TypeScript sigue el código igual que lo leerías tú y ajusta el tipo en cada zona. Si pasas el ratón por `id` en cada línea, el editor te muestra el tipo que tiene en ese punto.
 :::
 
+<DiagramNarrowing />
+
 ::: tip Dicho de otra forma
 El narrowing no cambia el valor ni lo convierte: solo hace que TypeScript **sepa más** sobre él después de una comprobación. Sin comprobación, error; con comprobación, vía libre.
 :::

@@ -29,6 +29,8 @@ const response = fetch('https://api.example.com/weather?city=Granada');
 `fetch` no devuelve la respuesta, sino una `Promise<Response>`: el ticket de una respuesta que llegará.
 
 `wait` muestra cómo se crea una promesa a mano: `new Promise` recibe una función con `resolve`, que es «el aviso de que ya está». Aquí se llama a `resolve` pasados `ms` milisegundos. `Promise<void>` indica que la promesa avisa de que ha terminado, pero no entrega ningún dato. Crear promesas a mano es poco habitual: lo normal es usar las que devuelven `fetch` y otras funciones.
+
+<DiagramPromise />
 :::
 
 ## `async` y `await`
@@ -268,7 +270,7 @@ setTimeout(() => console.log('B'), 0);
 Promise.resolve().then(() => console.log('C'));
 ```
 
-Las promesas (microtareas) se atienden **antes** que los temporizadores (tareas), aunque el temporizador sea de 0 ms.
+<DiagramEventLoop />
 :::
 
 ## Haz y evita

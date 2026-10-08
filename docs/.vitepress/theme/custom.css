@@ -256,3 +256,41 @@
   .VPHero.has-image .container { flex-direction: column; }
   .VPHero.has-image { padding-top: 48px !important; }
 }
+
+/* --------------------------------------------------------------------------
+   Diagramas (SVG propios, siguen el tema claro/oscuro)
+   -------------------------------------------------------------------------- */
+.wk-fig {
+  margin: 24px 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  overflow: hidden;
+}
+.wk-fig-scroll { overflow-x: auto; padding: 20px 16px 8px; }
+.wk-fig svg { display: block; width: 100%; min-width: 560px; height: auto; margin: 0 auto; }
+.wk-fig figcaption {
+  padding: 10px 16px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+.wk-fig figcaption strong { color: var(--vp-c-text-1); }
+.wk-fig .box { fill: var(--vp-c-bg); stroke: var(--vp-c-divider); stroke-width: 1.5; }
+.wk-fig .box-blue { fill: var(--vp-c-bg); stroke: var(--wk-blue-2); stroke-width: 1.5; }
+.wk-fig .box-soft { fill: var(--wk-blue-soft); stroke: var(--wk-blue-2); stroke-width: 1.5; }
+.wk-fig .box-ok { fill: var(--vp-c-bg); stroke: var(--wk-ok); stroke-width: 1.5; }
+.wk-fig .box-bad { fill: var(--vp-c-bg); stroke: var(--wk-bad); stroke-width: 1.5; }
+.wk-fig .box-dash { fill: none; stroke: var(--vp-c-divider); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.wk-fig .chip { fill: var(--wk-blue-soft); stroke: none; }
+.wk-fig text { fill: var(--vp-c-text-1); font-family: var(--vp-font-family-base); font-size: 14px; font-variant-ligatures: none; }
+.wk-fig .mono { font-family: var(--vp-font-family-mono); font-size: 13.5px; }
+.wk-fig .b { font-weight: 600; }
+.wk-fig .t2 { fill: var(--vp-c-text-2); font-size: 12.5px; }
+.wk-fig .ok { fill: var(--wk-ok); }
+.wk-fig .bad { fill: var(--wk-bad); }
+.wk-fig .blue { fill: var(--wk-blue-2); }
+.wk-fig .line { fill: none; stroke: var(--vp-c-text-2); stroke-width: 1.5; }
+.wk-fig .line-blue { fill: none; stroke: var(--wk-blue-2); stroke-width: 1.5; }
+.wk-fig .ah { fill: var(--vp-c-text-2); }
+.wk-fig .ah-blue { fill: var(--wk-blue-2); }

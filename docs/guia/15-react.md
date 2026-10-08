@@ -342,6 +342,8 @@ Qué hace el ejemplo:
 3. La función que devuelve el efecto se ejecuta si `city` cambia antes de que llegue la respuesta, o si el componente desaparece de la pantalla: cancela la petición vieja con el [`AbortController`](./11-asincronia#cancelar-con-abortcontroller).
 4. Según `status`, el `switch` pinta una cosa u otra.
 
+<DiagramUseEffect />
+
 ```tsx twoslash
 import { useEffect, useState } from 'react';
 
