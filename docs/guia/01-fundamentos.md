@@ -304,6 +304,8 @@ function average(scores: any): any {
 | Una función que no devuelve nada | `: void` |
 | Comprobar todo el proyecto | `npx tsc --noEmit` |
 
+<PracticeLink topic="01-fundamentos" />
+
 ## Ver también
 
 - [Uniones y narrowing](./02-uniones-narrowing): combinar tipos y comprobar cuál es.

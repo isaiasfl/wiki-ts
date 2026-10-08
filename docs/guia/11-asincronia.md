@@ -331,6 +331,8 @@ try { await save(); } catch {}
 | Varias peticiones en paralelo | `await Promise.all([a(), b()])` |
 | Cancelar una petición | `AbortController` + `signal` |
 
+<PracticeLink topic="11-asincronia" />
+
 ## Ver también
 
 - [null y undefined](./06-null-undefined#validar-datos-que-llegan-de-fuera): validar datos externos.

@@ -48,6 +48,19 @@ const title = 'Dune';
 - `//    ^?` debajo de un nombre pide su tipo. Para no tapar el código, conviértelo después en un comentario fijo con `node scripts/quitar-consultas.mjs docs/guia/tema.md`.
 - `// ---cut---` oculta lo que hay por encima (declaraciones auxiliares).
 
+### Ejercicios
+
+Están en `docs/ejercicios/`, una página por tema. Cada ejercicio tiene:
+
+- Un bloque de partida ```` ```ts twoslash playground ````: se compila al generar la web y lleva un enlace que lo abre en el TypeScript Playground. Las líneas `// @...` no se copian al Playground.
+- Una pista y una solución en `::: details`. La solución es un bloque ```` ```ts twoslash run ```` con el programa completo y sus comprobaciones (`check(...)`).
+
+`node scripts/soluciones.mjs` ejecuta todas las soluciones con Node y falla si alguna comprobación no dice OK.
+
+### Versión de examen
+
+`WIKI_EXAM=1 npm run build` (o `WIKI_EXAM=1 docker compose up -d --build`) genera la wiki sin ejercicios, sin soluciones y sin enlaces al Playground.
+
 Herramientas de revisión:
 
 ```sh

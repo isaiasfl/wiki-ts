@@ -363,6 +363,8 @@ let size: string = 'medium-ish';
 | Que me avisen si olvido un caso | `default` con `const x: never = valor` |
 | Encapsular una comprobación | `function isX(v: unknown): v is X` |
 
+<PracticeLink topic="02-uniones-narrowing" />
+
 ## Ver también
 
 - [Fundamentos](./01-fundamentos): `unknown` y `never`.

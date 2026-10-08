@@ -342,6 +342,8 @@ const data = JSON.parse(raw) as Preferences;
 | Un dato externo sin tipo garantizado | `const data: unknown = ...` + type guard |
 | Quitar `null` y `undefined` de un tipo | `NonNullable<T>` |
 
+<PracticeLink topic="06-null-undefined" />
+
 ## Ver también
 
 - [Uniones y narrowing](./02-uniones-narrowing): cómo estrecha TypeScript los tipos.

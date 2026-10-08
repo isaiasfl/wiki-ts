@@ -295,6 +295,8 @@ function first(list: any[]): any {
 | Una interfaz con hueco | `interface ApiResponse<T> { data: T }` |
 | Indicar el tipo al llamar | `new Map<number, Book>()` · `useState<Book \| null>(null)` |
 
+<PracticeLink topic="08-genericos" />
+
 ## Ver también
 
 - [Utility types](./09-utility-types): genéricos que ya vienen con TypeScript.

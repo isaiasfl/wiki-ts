@@ -344,6 +344,8 @@ title.innerHTML = book.title;
 | Leer un formulario | `new FormData(form)` + validar |
 | Guardar en el navegador | `localStorage.setItem` · `getItem` + validar |
 
+<PracticeLink topic="12-dom" />
+
 ## Ver también
 
 - [null y undefined](./06-null-undefined): por qué `querySelector` puede devolver `null`.

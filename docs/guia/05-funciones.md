@@ -282,6 +282,8 @@ createLoan(7, 3, 15, false, 'normal');
 | Una función como parámetro | `callback: (x: number) => void` |
 | Dar nombre a una firma | `type Comparator<T> = (a: T, b: T) => number` |
 
+<PracticeLink topic="05-funciones" />
+
 ## Ver también
 
 - [Arrays](./04-arrays): los callbacks de `map`, `filter` y `reduce`.

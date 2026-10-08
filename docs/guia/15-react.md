@@ -540,6 +540,8 @@ const [data, setData] = useState(null);
 | Estado de una petición | Unión discriminada + `switch` |
 | Varias operaciones sobre el estado | `useReducer` con acciones en una unión |
 
+<PracticeLink topic="15-react" />
+
 ## Ver también
 
 - [Uniones y narrowing](./02-uniones-narrowing#uniones-discriminadas): modelar estados.

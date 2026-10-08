@@ -349,6 +349,8 @@ Lista de comprobación:
 En TypeScript, las interfaces hacen que varios de estos principios sean naturales: ver [Clases · Herencia y composición](./10-clases#herencia-y-composicion).
 :::
 
+<PracticeLink topic="13-clean-code" />
+
 ## Ver también
 
 - [Traductor de errores](./14-errores): qué significa cada aviso del compilador.

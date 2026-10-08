@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme';
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client';
 import '@shikijs/vitepress-twoslash/style.css';
 import TopicGrid from './TopicGrid.vue';
+import PracticeLink from './PracticeLink.vue';
 import HeroCode from './HeroCode.vue';
 import DiagramNarrowing from './diagrams/DiagramNarrowing.vue';
 import DiagramPromise from './diagrams/DiagramPromise.vue';
@@ -18,6 +19,7 @@ export default {
   enhanceApp({ app }) {
     app.use(TwoslashFloatingVue);
     app.component('TopicGrid', TopicGrid);
+    app.component('PracticeLink', PracticeLink);
     app.component('DiagramNarrowing', DiagramNarrowing);
     app.component('DiagramPromise', DiagramPromise);
     app.component('DiagramEventLoop', DiagramEventLoop);

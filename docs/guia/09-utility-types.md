@@ -284,6 +284,8 @@ interface NewUser {
 | El tipo de una propiedad | `T['prop']` |
 | Lo que da una promesa | `Awaited<T>` |
 
+<PracticeLink topic="09-utility-types" />
+
 ## Ver también
 
 - [Objetos](./03-objetos): `interface`, `type` y `Record`.

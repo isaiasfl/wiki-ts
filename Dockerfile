@@ -6,7 +6,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-ENV WIKI_NO_GIT=1
+ARG WIKI_EXAM=0
+ENV WIKI_NO_GIT=1 WIKI_EXAM=$WIKI_EXAM
 RUN npm run build
 
 FROM nginx:alpine

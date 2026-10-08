@@ -269,6 +269,8 @@ Mezclar lógica, acceso a datos y DOM en el mismo fichero.
 | Cargar CSS | `import './style.css'` |
 | Cargar un módulo bajo demanda | `await import('./modulo')` |
 
+<PracticeLink topic="07-modulos" />
+
 ## Ver también
 
 - [Clean code en TypeScript](./13-clean-code): organización y responsabilidades.

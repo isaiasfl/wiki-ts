@@ -310,6 +310,8 @@ class MathUtils {
 | Cumplir un contrato | `class X implements Interfaz` |
 | Un error propio | `class MiError extends Error` + `instanceof` |
 
+<PracticeLink topic="10-clases" />
+
 ## Ver también
 
 - [Uniones y narrowing](./02-uniones-narrowing#instanceof-clases-y-errores): `instanceof`.

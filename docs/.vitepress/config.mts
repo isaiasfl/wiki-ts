@@ -2,6 +2,12 @@ import { defineConfig } from 'vitepress';
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 import container from 'markdown-it-container';
 import type MarkdownIt from 'markdown-it';
+import LZString from 'lz-string';
+
+const { compressToEncodedURIComponent } = LZString;
+
+// Modo examen (WIKI_EXAM=1): sin ejercicios, soluciones ni enlaces al Playground.
+const exam = process.env.WIKI_EXAM === '1';
 
 // Bloques propios: ::: esencial / ::: ampliacion / ::: haz / ::: evita / ::: error
 const customBlocks: Record<string, string> = {
@@ -12,7 +18,24 @@ const customBlocks: Record<string, string> = {
   error: 'Error típico',
 };
 
+// Bloques ```ts playground: añade debajo un enlace que abre el código en el
+// Playground oficial de TypeScript (ESNext, estricto; JSX si es tsx).
+function registerPlayground(md: MarkdownIt): void {
+  const fence = md.renderer.rules.fence;
+  if (fence === undefined) return;
+  md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+    const html = fence(tokens, idx, options, env, self);
+    const token = tokens[idx];
+    if (exam || token === undefined || !/\bplayground\b/.test(token.info)) return html;
+    const tsx = token.info.startsWith('tsx');
+    const query = tsx ? '?target=99&jsx=4' : '?target=99';
+    const url = `https://www.typescriptlang.org/play/${query}#code/${compressToEncodedURIComponent(token.content.split('\n').filter((line) => !/^\s*\/\/ @\w+/.test(line)).join('\n'))}`;
+    return `${html}<p class="wk-play"><a href="${url}" target="_blank" rel="noopener">Abrir en el Playground</a></p>\n`;
+  };
+}
+
 function registerBlocks(md: MarkdownIt): void {
+  registerPlayground(md);
   for (const [name, defaultTitle] of Object.entries(customBlocks)) {
     md.use(container, name, {
       render(tokens: { nesting: number; info: string }[], idx: number): string {
@@ -46,15 +69,30 @@ const topics = [
 // Temas redactados. Uno nuevo que aún no esté listo aparece marcado como «pronto».
 const ready = new Set<string>(topics.map(([slug]) => slug));
 
+const exercises = topics.filter(([slug]) => slug !== '14-errores');
+
 const item = ([slug, text]: readonly [string, string]) => ({
   text: ready.has(slug) ? text : `${text} <span class="wk-soon">pronto</span>`,
   link: `/guia/${slug}`,
 });
 
+const exerciseSidebar = [
+  {
+    text: 'Ejercicios',
+    items: [
+      { text: 'Cómo funcionan', link: '/ejercicios/' },
+      ...exercises.map(([slug, text]) => ({ text, link: `/ejercicios/${slug}` })),
+    ],
+  },
+  { text: 'Volver a la guía', items: [{ text: 'Cómo usar esta wiki', link: '/guia/00-como-usar' }] },
+];
+
 export default defineConfig({
   // GitHub Pages sirve la web en /wiki-ts/; en local o en un contenedor, en la raíz.
   base: process.env.WIKI_BASE ?? '/',
   lang: 'es-ES',
+  srcExclude: exam ? ['ejercicios/**'] : [],
+  vite: { define: { __WIKI_EXAM__: JSON.stringify(exam) } },
   title: 'Wiki TS',
   description: 'TypeScript para el módulo DWEC (Desarrollo Web en Entorno Cliente): de los primeros tipos a React.',
   cleanUrls: true,
@@ -98,30 +136,34 @@ export default defineConfig({
     nav: [
       { text: 'Inicio', link: '/' },
       { text: 'Guía', link: '/guia/00-como-usar' },
+      ...(exam ? [] : [{ text: 'Ejercicios', link: '/ejercicios/' }]),
       { text: 'Errores', link: '/guia/14-errores' },
       { text: 'Glosario', link: '/guia/glosario' },
     ],
-    sidebar: [
-      {
-        text: 'Empezar',
-        items: [
-          { text: 'Cómo usar esta wiki', link: '/guia/00-como-usar' },
-          { text: 'Glosario', link: '/guia/glosario' },
-        ],
-      },
-      {
-        text: 'El lenguaje',
-        items: topics.slice(0, 10).map(item),
-      },
-      {
-        text: 'En el navegador',
-        items: topics.slice(10, 12).map(item),
-      },
-      {
-        text: 'Oficio',
-        items: topics.slice(12).map(item),
-      },
-    ],
+    sidebar: {
+      ...(exam ? {} : { '/ejercicios/': exerciseSidebar }),
+      '/': [
+        {
+          text: 'Empezar',
+          items: [
+            { text: 'Cómo usar esta wiki', link: '/guia/00-como-usar' },
+            { text: 'Glosario', link: '/guia/glosario' },
+          ],
+        },
+        {
+          text: 'El lenguaje',
+          items: topics.slice(0, 10).map(item),
+        },
+        {
+          text: 'En el navegador',
+          items: topics.slice(10, 12).map(item),
+        },
+        {
+          text: 'Oficio',
+          items: topics.slice(12).map(item),
+        },
+      ],
+    },
     outline: { level: [2, 3], label: 'En esta página' },
     docFooter: { prev: 'Anterior', next: 'Siguiente' },
     lastUpdated: { text: 'Actualizado' },

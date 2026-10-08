@@ -458,6 +458,8 @@ Usar `any` para «salir del paso» con un objeto complicado. Se pierden todas la
 | Valores exactos e inmutables | `{ ... } as const` |
 | Comprobar sin perder el tipo exacto | `{ ... } satisfies Tipo` |
 
+<PracticeLink topic="03-objetos" />
+
 ## Ver también
 
 - [Uniones y narrowing](./02-uniones-narrowing): las uniones de literales que se usan como claves de `Record`.

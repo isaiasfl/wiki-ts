@@ -14,6 +14,7 @@
     "@types/markdown-it-container": "^4.0.1",
     "@types/react": "^19.3.0",
     "lucide-static": "^1.52.0",
+    "lz-string": "^1.5.0",
     "markdown-it-container": "^4.0.0",
     "typescript": "^6.0.3",
     "vitepress": "^1.6.4"

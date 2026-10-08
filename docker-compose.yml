@@ -2,9 +2,14 @@
 #   git clone https://github.com/isaiasfl/wiki-ts.git && cd wiki-ts
 #   docker compose up -d --build
 # Para actualizar: git pull && docker compose up -d --build
+# Versión de examen: WIKI_EXAM=1 docker compose up -d --build
 services:
   wiki-ts:
-    build: .
+    build:
+      context: .
+      args:
+        # 1 = versión de examen: sin ejercicios ni enlaces al Playground
+        WIKI_EXAM: ${WIKI_EXAM:-0}
     image: wiki-ts:latest
     container_name: wiki-ts
     ports:

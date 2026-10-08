@@ -445,6 +445,8 @@ songs.filter((s: Song): boolean => s.liked);
 | Ordenar sin mutar | `list.toSorted((a, b) => a.n - b.n)` |
 | Añadir / quitar / cambiar sin mutar | `[...list, x]` · `filter` · `map` con spread |
 
+<PracticeLink topic="04-arrays" />
+
 ## Ver también
 
 - [null y undefined](./06-null-undefined): tratar el resultado de `find`.
