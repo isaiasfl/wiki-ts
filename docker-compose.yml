@@ -1,0 +1,12 @@
+# Despliegue en un servidor con Docker:
+#   git clone https://github.com/isaiasfl/wiki-ts.git && cd wiki-ts
+#   docker compose up -d --build
+# Para actualizar: git pull && docker compose up -d --build
+services:
+  wiki-ts:
+    build: .
+    image: wiki-ts:latest
+    container_name: wiki-ts
+    ports:
+      - "${WIKI_PORT:-8080}:80"
+    restart: unless-stopped

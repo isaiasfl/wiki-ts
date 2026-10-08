@@ -1,0 +1,21 @@
+{
+  "name": "wiki-ts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Wiki de TypeScript del curso DWEC: referencia de consulta, de los fundamentos a React.",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@shikijs/vitepress-twoslash": "^4.5.0",
+    "@types/markdown-it-container": "^4.0.1",
+    "@types/react": "^19.3.0",
+    "lucide-static": "^1.52.0",
+    "markdown-it-container": "^4.0.0",
+    "typescript": "^6.0.3",
+    "vitepress": "^1.6.4"
+  }
+}

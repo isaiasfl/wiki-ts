@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Wiki TS · paleta y componentes
+   Azul TypeScript sobre grises pizarra. Semánticos inspirados en GitHub Primer.
+   ========================================================================== */
+
+:root {
+  --wk-blue-1: #235a97;
+  --wk-blue-2: #3178c6;
+  --wk-blue-3: #4a8fd8;
+  --wk-blue-soft: rgba(49, 120, 198, 0.1);
+
+  --vp-c-brand-1: var(--wk-blue-1);
+  --vp-c-brand-2: var(--wk-blue-2);
+  --vp-c-brand-3: var(--wk-blue-2);
+  --vp-c-brand-soft: var(--wk-blue-soft);
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f6f8fa;
+  --vp-c-bg-soft: #f3f5f8;
+  --vp-c-divider: #d8dee4;
+  --vp-c-text-1: #1f2328;
+  --vp-c-text-2: #59636e;
+
+  /* Semánticos */
+  --wk-note: #3178c6;
+  --wk-ok: #1a7f37;
+  --wk-warn: #9a6700;
+  --wk-bad: #cf222e;
+  --wk-deep: #0e7490;
+
+  --vp-c-tip-1: var(--wk-ok);
+  --vp-c-tip-soft: rgba(26, 127, 55, 0.08);
+  --vp-c-warning-1: var(--wk-warn);
+  --vp-c-warning-soft: rgba(154, 103, 0, 0.08);
+  --vp-c-danger-1: var(--wk-bad);
+  --vp-c-danger-soft: rgba(207, 34, 46, 0.07);
+  --vp-c-note-1: var(--wk-note);
+
+  --vp-home-hero-name-color: var(--wk-blue-2);
+  --vp-button-brand-bg: var(--wk-blue-2);
+  --vp-button-brand-hover-bg: var(--wk-blue-1);
+  --vp-button-brand-active-bg: var(--wk-blue-1);
+
+  --vp-font-family-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+.dark {
+  --wk-blue-1: #79b0ec;
+  --wk-blue-2: #4a8fd8;
+  --wk-blue-soft: rgba(74, 143, 216, 0.14);
+  --vp-c-brand-1: var(--wk-blue-1);
+  --vp-c-brand-2: var(--wk-blue-2);
+  --vp-c-brand-3: #3178c6;
+
+  --vp-c-bg: #0d1117;
+  --vp-c-bg-alt: #010409;
+  --vp-c-bg-soft: #161b22;
+  --vp-c-divider: #30363d;
+  --vp-c-text-1: #e6edf3;
+  --vp-c-text-2: #9198a1;
+
+  --wk-note: #4a8fd8;
+  --wk-ok: #3fb950;
+  --wk-warn: #d29922;
+  --wk-bad: #f85149;
+  --wk-deep: #22b3cf;
+
+  --vp-c-tip-soft: rgba(63, 185, 80, 0.1);
+  --vp-c-warning-soft: rgba(210, 153, 34, 0.1);
+  --vp-c-danger-soft: rgba(248, 81, 73, 0.1);
+  --vp-button-brand-bg: #3178c6;
+}
+
+/* --------------------------------------------------------------------------
+   Iconos Lucide como máscara: toman el color del texto
+   -------------------------------------------------------------------------- */
+.wk-block-title::before,
+.custom-block .custom-block-title::before {
+  content: '';
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.45em;
+  vertical-align: -0.17em;
+  background-color: currentColor;
+  -webkit-mask: var(--wk-icon) no-repeat center / contain;
+  mask: var(--wk-icon) no-repeat center / contain;
+}
+
+/* Bloques nativos de VitePress */
+.custom-block {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  border-left-width: 4px;
+}
+.custom-block .custom-block-title {
+  font-weight: 600;
+}
+.custom-block.info {
+  --wk-icon: url('./icons/info.svg');
+  border-color: var(--vp-c-divider);
+  border-left-color: var(--wk-note);
+  background: var(--vp-c-bg-soft);
+}
+.custom-block.info .custom-block-title { color: var(--wk-note); }
+.custom-block.tip {
+  --wk-icon: url('./icons/lightbulb.svg');
+  border-left-color: var(--wk-ok);
+}
+.custom-block.warning {
+  --wk-icon: url('./icons/triangle-alert.svg');
+  border-left-color: var(--wk-warn);
+}
+.custom-block.danger {
+  --wk-icon: url('./icons/circle-x.svg');
+  border-left-color: var(--wk-bad);
+}
+
+/* Bloques propios */
+.wk-block {
+  margin: 16px 0;
+  padding: 14px 18px 2px;
+  border: 1px solid var(--vp-c-divider);
+  border-left: 4px solid var(--wk-c);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--wk-c) 6%, var(--vp-c-bg));
+}
+.wk-block-title {
+  margin: 0 0 6px !important;
+  font-weight: 600;
+  color: var(--wk-c);
+}
+.wk-block > :last-child { margin-bottom: 14px; }
+.wk-block div[class*='language-'] { margin: 10px 0; }
+
+.wk-esencial   { --wk-c: var(--wk-note); --wk-icon: url('./icons/book-open.svg'); }
+.wk-ampliacion { --wk-c: var(--wk-deep); --wk-icon: url('./icons/layers.svg'); }
+.wk-haz        { --wk-c: var(--wk-ok);   --wk-icon: url('./icons/circle-check.svg'); }
+.wk-evita      { --wk-c: var(--wk-bad);  --wk-icon: url('./icons/ban.svg'); }
+.wk-error      { --wk-c: var(--wk-warn); --wk-icon: url('./icons/bug.svg'); }
+
+/* Haz / Evita lado a lado */
+.wk-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+.wk-pair .wk-block { margin: 0; min-width: 0; }
+.wk-block div[class*='language-'] { overflow-x: auto; }
+@media (max-width: 768px) {
+  .wk-pair { grid-template-columns: 1fr; }
+}
+
+/* Ficha de cabecera de cada tema */
+.wk-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 24px;
+}
+.wk-meta span {
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+}
+.wk-meta span strong { color: var(--vp-c-text-1); font-weight: 600; }
+
+/* Tablas más densas, estilo documentación */
+.vp-doc table { font-size: 14px; }
+.vp-doc th { background: var(--vp-c-bg-soft); }
+
+/* Código en línea con un toque de marca */
+.vp-doc :not(pre) > code {
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.1em 0.35em;
+}
+
+/* Portada */
+.VPHero .name { letter-spacing: -0.02em; }
+.VPHero .tagline { color: var(--vp-c-text-2); }
+
+/* Etiqueta «pronto» en el menú lateral */
+.wk-soon {
+  white-space: nowrap;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid var(--vp-c-divider);
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  vertical-align: 1px;
+}
+
+/* Twoslash: indicar qué se puede señalar con el ratón para ver su tipo */
+.vp-doc .twoslash-hover {
+  border-bottom: 1px dotted color-mix(in srgb, var(--vp-c-brand-2) 45%, transparent);
+  cursor: help;
+}
+.vp-doc .twoslash-hover:hover {
+  border-bottom-color: var(--vp-c-brand-2);
+  background: var(--vp-c-brand-soft);
+}
+
+/* Dentro de otro bloque, Haz / Evita se apilan para que el código respire */
+.wk-block .wk-pair { grid-template-columns: minmax(0, 1fr); }
+
+
+/* Sin ligaduras: que => y === se vean tal y como se escriben */
+.vp-doc code,
+.vp-doc pre,
+.twoslash-popup-container {
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
+}
+
+/* --------------------------------------------------------------------------
+   Portada
+   -------------------------------------------------------------------------- */
+.VPHero .name,
+.VPHero .text {
+  font-size: 48px !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.025em;
+}
+.VPHero .text { color: var(--vp-c-text-1); max-width: 640px; }
+.VPHero .tagline {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  max-width: 520px;
+  padding-top: 16px !important;
+}
+.VPHero .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+}
+.VPHero .image-bg { display: none; }
+@media (max-width: 960px) {
+  .VPHero .name, .VPHero .text { font-size: 36px !important; }
+}
+
+
+/* En pantallas estrechas la ventana de código se oculta: título y botones primero */
+@media (max-width: 959px) {
+  .VPHero .image { display: none; }
+  .VPHero.has-image .container { flex-direction: column; }
+  .VPHero.has-image { padding-top: 48px !important; }
+}
